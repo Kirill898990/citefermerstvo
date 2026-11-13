@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ситифермерство</title>
+  <meta name="description" content="Ситифермерство — теория, практика и живая лента наблюдений за растениями. Загружайте фото своих растений и смотрите результаты других.">
+  <meta name="theme-color" content="#f5f5f7">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/cormorant-garamond-cyrillic-500-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <script>(function(){try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t)}catch(e){}})()</script>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <div class="backdrop" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <header class="site-header" id="site-header"></header>
+  <script src="/js/icons.js"></script>
+  <script src="/js/site-data.js"></script>
+  <script src="/js/header.js"></script>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <span class="eyebrow glass reveal" data-glow><i data-icon="sprout"></i><span>Городское фермерство для школьников</span></span>
+        <h1 class="h-display reveal" style="--d:1">Выращиваем <em class="it it--accent">будущее</em> прямо в&nbsp;городе</h1>
+        <p class="lede reveal" style="--d:2">Теория, практика и живая лента наблюдений. Загружайте фотографии своих растений, следите за успехами других и&nbsp;ставьте лайки.</p>
+        <div class="hero__actions reveal" style="--d:3">
+          <a class="btn btn--primary" href="/cabinet.html#upload"><i data-icon="camera"></i><span>Добавить наблюдение</span></a>
+          <a class="btn glass" data-glow href="#feed"><span>Смотреть ленту</span><i data-icon="arrow-right"></i></a>
+        </div>
+        <div class="hero__facts reveal" style="--d:4">
+          <span><b data-count="topics">9</b> учебных тем</span>
+          <span><b data-count="observations">—</b> <span data-count-label>наблюдений</span> в ленте</span>
+          <span><em class="it">растём вместе</em></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section feed" id="feed">
+      <div class="container">
+        <div class="feed-head">
+          <div class="feed-head__text reveal">
+            <h2 class="h-section">Лента <em class="it it--accent">наблюдений</em></h2>
+            <p>Результаты всех участников — от первых всходов до урожая.</p>
+            <div class="feed-filter glass" id="feed-filter" hidden></div>
+          </div>
+          <div class="segmented glass reveal" id="feed-sort" style="--n:2;--d:1" role="group" aria-label="Сортировка ленты">
+            <span class="segmented__thumb"></span>
+            <button type="button" data-sort="new" aria-pressed="true"><i data-icon="clock"></i>Новые</button>
+            <button type="button" data-sort="popular" aria-pressed="false"><i data-icon="flame"></i>Популярные</button>
+          </div>
+        </div>
+
+        <div class="grid" id="feed-grid"></div>
+        <div class="feed-more" id="feed-more"></div>
+      </div>
+    </section>
+
+    <button class="new-posts btn btn--sm glass" id="new-posts" type="button" data-glow><i data-icon="sparkle"></i><span>Новые наблюдения</span></button>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script type="module" src="/js/feed.js"></script>
+</body>
+</html>
