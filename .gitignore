@@ -1,0 +1,10 @@
+# Данные и бинарник PocketBase
+pb_data/
+pocketbase
+pocketbase.exe
+*.zip
+
+# Системное
+.DS_Store
+Thumbs.db
+node_modules/
