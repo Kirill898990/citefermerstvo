@@ -187,7 +187,6 @@
   function tabInner(section) {
     var user = section.type === "account" ? getAuth() : null;
     return (
-      '<span class="tab__stitch" aria-hidden="true"></span>' +
       (user ? avatarHTML(user) : icon(section.icon)) +
       '<span class="tab__label"><span class="tab__long">' + esc(section.label) + "</span>" +
       '<span class="tab__short">' + esc(section.short || section.label) + "</span></span>"
