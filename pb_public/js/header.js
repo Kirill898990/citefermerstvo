@@ -86,7 +86,10 @@
       return t ? t.section : null;
     }
     if (/\/cabinet(\.html)?$/.test(path)) return "account";
-    return null;
+    var page = SITE.nav.filter(function (s) {
+      return s.href && s.href.replace(/\.html$/, "") === path.replace(/\.html$/, "");
+    })[0];
+    return page ? page.id : null;
   }
 
   /* ----------------------------------------------------------- разметка */
@@ -143,6 +146,17 @@
     );
   }
 
+  /** Меню-кнопка, ведущая на отдельную страницу сайта (например, «Гидропоника») */
+  function pageMenu(section) {
+    return (
+      '<p class="menu__desc">' + section.desc + "</p>" +
+      '<a class="btn btn--primary btn--block" href="' + esc(section.href) + '">' +
+      "<span>" + esc(section.button) + "</span>" + icon("arrow-right") +
+      "</a>" +
+      (section.note ? '<span class="menu__url">' + esc(section.note) + "</span>" : "")
+    );
+  }
+
   function feedMenu() {
     var user = getAuth();
     var html = '<p class="menu__title">Наблюдения</p><div class="menu__list"><span class="menu__hl"></span>';
@@ -179,6 +193,7 @@
 
   function menuContent(section) {
     if (section.type === "practice") return practiceMenu();
+    if (section.type === "page") return pageMenu(section);
     if (section.type === "feed") return feedMenu();
     if (section.type === "account") return accountMenu();
     return topicsMenu(section);
@@ -204,7 +219,7 @@
         (active === section.id ? ' aria-current="true"' : "") + ">" +
         tabInner(section) +
         "</button>" +
-        '<div class="menu glass' + (section.type === "practice" ? " menu--practice" : "") + '" id="' + menuId + '" inert>' +
+        '<div class="menu glass' + (section.type === "practice" || section.type === "page" ? " menu--practice" : "") + '" id="' + menuId + '" inert>' +
         menuContent(section) +
         "</div></div>";
     });
@@ -374,6 +389,14 @@
 
   bindMenus();
 
+  /** Сдвиг меню считаем заранее для всех вкладок: даже скрытое меню
+      не должно вылезать за край экрана и давать горизонтальную прокрутку */
+  function positionAll() {
+    header.querySelectorAll(".tab-item").forEach(positionMenu);
+  }
+
+  positionAll();
+
   document.addEventListener("pointerdown", function (e) {
     if (openItem && !openItem.contains(e.target)) close(openItem);
   });
@@ -386,9 +409,7 @@
     }
   });
 
-  window.addEventListener("resize", function () {
-    if (openItem) positionMenu(openItem);
-  });
+  window.addEventListener("resize", positionAll);
 
   // Выход из аккаунта
   header.addEventListener("click", function (e) {
@@ -494,6 +515,7 @@
       '<a href="' + topicUrl("material") + '">Теория</a>' +
       '<a href="' + esc(SITE.practiceUrl) + '" target="_blank" rel="noopener">Практика</a>' +
       '<a href="' + topicUrl("hydroponic-types") + '">Учебные схемы</a>' +
+      '<a href="/hydroponics.html">Гидропоника</a>' +
       '<a href="/#feed">Наблюдения</a>' +
       '<a href="/cabinet.html">Личный кабинет</a>' +
       "</nav>" +
@@ -528,6 +550,7 @@
       replacement.style.animation = "none";
       item.replaceWith(replacement);
       bindItem(replacement);
+      positionMenu(replacement);
     });
   }
 

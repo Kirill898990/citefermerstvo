@@ -1,0 +1,24 @@
+# Служба systemd: сайт работает постоянно и сам перезапускается после сбоя
+# или перезагрузки сервера. Установка описана в README («Запуск на сервере»).
+[Unit]
+Description=Sitifermerstvo website (PocketBase) on cityzaman.ru
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pocketbase
+Group=pocketbase
+WorkingDirectory=/opt/cityzaman
+# С доменами в аргументах PocketBase сам слушает порты 80 и 443
+# и автоматически получает HTTPS-сертификат Let's Encrypt.
+ExecStart=/opt/cityzaman/pocketbase serve cityzaman.ru www.cityzaman.ru
+Restart=always
+RestartSec=5
+LimitNOFILE=4096
+# Разрешаем занять порты 80/443 без прав root
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

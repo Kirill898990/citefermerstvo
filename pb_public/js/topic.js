@@ -83,10 +83,11 @@
         (b.items || [])
           .map(function (l, i) {
             return (
-              '<a class="link-row surface rim reveal" style="--d:' + (i % 6) + '" href="' + esc(l.url) + '" target="_blank" rel="noopener">' +
+              '<a class="link-row surface rim reveal" style="--d:' + (i % 6) + '" href="' + esc(l.url) + '"' +
+              (l.internal ? "" : ' target="_blank" rel="noopener"') + ">" +
               '<span class="menu__icon">' + icon(l.icon || "globe") + "</span>" +
               "<span><b>" + esc(l.title) + "</b>" + (l.note ? "<small>" + esc(l.note) + "</small>" : "") + "</span>" +
-              icon("arrow-up-right", "icon--go") +
+              icon(l.internal ? "arrow-right" : "arrow-up-right", "icon--go") +
               "</a>"
             );
           })

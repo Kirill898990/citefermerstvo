@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Гидропоника · Ситифермерство</title>
+  <meta name="description" content="Гидропоника — выращивание растений без почвы. Шесть основных типов гидропонных систем: как работают, плюсы и минусы, что выращивать. С фотографиями и схемами.">
+  <meta name="theme-color" content="#f5f5f7">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/cormorant-garamond-cyrillic-500-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <script>(function(){try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t)}catch(e){}})()</script>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <div class="backdrop" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <header class="site-header" id="site-header"></header>
+  <script src="/js/icons.js"></script>
+  <script src="/js/site-data.js"></script>
+  <script src="/js/header.js"></script>
+
+  <!-- Общие элементы схем -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="sc-plant" viewBox="0 0 60 60">
+        <path d="M30 60V30" fill="none" stroke="#2f9e4f" stroke-width="3" stroke-linecap="round"/>
+        <path d="M30 37c0-14 8-22 24-24 0 15-9 24-24 24z" fill="#34c759"/>
+        <path d="M30 43c0-12-7-20-22-22 0 14 8 22 22 22z" fill="#62d27c"/>
+        <path d="M30 31c-3-9 0-17 6-25 4 9 1 18-6 25z" fill="#28a745"/>
+      </symbol>
+      <symbol id="sc-roots" viewBox="0 0 40 60" preserveAspectRatio="none">
+        <path d="M20 0v54M20 8c-4 9-11 14-15 26M20 10c5 8 11 14 13 27M20 22c-3 7-6 14-6 26M20 20c3 7 7 14 7 23" fill="none" stroke="#c49a5c" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+      </symbol>
+      <radialGradient id="sc-mist-grad" cx="50%" cy="100%" r="100%">
+        <stop offset="0" stop-color="#4aa3ff" stop-opacity="0.75"/>
+        <stop offset="0.6" stop-color="#4aa3ff" stop-opacity="0.18"/>
+        <stop offset="1" stop-color="#4aa3ff" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+  </svg>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="container">
+        <nav class="crumbs reveal" aria-label="Вы здесь"><a href="/">Главная</a><i data-icon="chevron"></i><span>Гидропоника</span></nav>
+        <h1 class="h-display reveal" style="--d:1">Гидропоника</h1>
+        <p class="lede lede--serif reveal" style="--d:2">Как вырастить растение без земли — и почему так часто получается даже быстрее.</p>
+
+        <div class="hero-mosaic hydro-hero">
+          <figure class="photo reveal" style="--d:3">
+            <img src="/img/hydroponics/hero.jpg" alt="Разные сорта салата, выращенные на гидропонной ферме" width="500" height="333" data-zoom>
+            <figcaption class="credit">Фото: <a href="https://commons.wikimedia.org/wiki/File:20210302-PJK-FPAC-0025_TONED.jpg" target="_blank" rel="noopener">USDA</a>, общественное достояние</figcaption>
+          </figure>
+          <figure class="photo reveal" style="--d:4">
+            <img src="/img/hydroponics/hero-tower.jpg" alt="Аэропонные башни с зеленью в аэропорту О’Хара, Чикаго" width="500" height="375" data-zoom>
+            <figcaption class="credit">Фото: <a href="https://commons.wikimedia.org/wiki/File:O%27Hare_Aeroponic_Garden.jpg" target="_blank" rel="noopener">Mx. Granger</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.ru" target="_blank" rel="noopener">CC0</a></figcaption>
+          </figure>
+          <figure class="photo reveal" style="--d:5">
+            <img src="/img/hydroponics/hero-farm.jpg" alt="Гидропонная теплица с каналами NFT" width="500" height="333" data-zoom>
+            <figcaption class="credit">Фото: <a href="https://commons.wikimedia.org/wiki/File:Living_with_the_Land_26.jpg" target="_blank" rel="noopener">Michael Rivera</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ru" target="_blank" rel="noopener">CC BY-SA 4.0</a></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="container hydro-intro">
+      <div class="reveal">
+        <h2 class="h-section">Что это <em class="it it--accent">такое</em></h2>
+        <div class="prose">
+          <p><b>Гидропоника</b> — способ выращивать растения без почвы. Корни получают воду и все нужные минеральные вещества из питательного раствора, а держатся в инертном субстрате — керамзите, минеральной вате, кокосовом волокне — или просто свисают в воду или воздух.</p>
+          <p>Для растения почва — это прежде всего опора и кладовая питания. Если дать корням всё необходимое напрямую, земля не нужна. Поэтому гидропонную ферму можно устроить где угодно: в теплице, на крыше, в подвале или прямо в классе.</p>
+        </div>
+      </div>
+
+      <div class="needs reveal" style="--d:1" aria-label="Что нужно растению">
+        <div class="need surface rim"><span class="menu__icon"><i data-icon="drop"></i></span><span><b>Вода</b><span>основа питательного раствора</span></span></div>
+        <div class="need surface rim"><span class="menu__icon"><i data-icon="flask"></i></span><span><b>Питание</b><span>азот, фосфор, калий и микроэлементы</span></span></div>
+        <div class="need surface rim"><span class="menu__icon"><i data-icon="sparkle"></i></span><span><b>Кислород</b><span>корни тоже дышат</span></span></div>
+        <div class="need surface rim"><span class="menu__icon"><i data-icon="sun"></i></span><span><b>Свет</b><span>солнце или фитолампы</span></span></div>
+        <div class="need surface rim"><span class="menu__icon"><i data-icon="sprout"></i></span><span><b>Опора</b><span>субстрат или держатель</span></span></div>
+      </div>
+    </section>
+
+    <section class="container facts" aria-label="Преимущества гидропоники">
+      <div class="fact surface rim reveal"><b>до 90 %</b><span>меньше воды, чем на обычной грядке: раствор не уходит в землю, а используется снова</span></div>
+      <div class="fact surface rim reveal" style="--d:1"><b>круглый год</b><span>урожай в помещении под фитолампами — без зависимости от погоды</span></div>
+      <div class="fact surface rim reveal" style="--d:2"><b>ярусами</b><span>установки ставят друг над другом — так устроены вертикальные фермы</span></div>
+    </section>
+
+    <section class="container" id="systems" aria-labelledby="systems-title">
+      <div class="hydro-section-head reveal">
+        <h2 class="h-section" id="systems-title">Шесть основных <em class="it it--accent">систем</em></h2>
+        <p class="lede">Все они решают одну задачу — дать корням воду, питание и кислород, — но делают это по-разному.</p>
+        <nav class="toc" aria-label="Системы на этой странице">
+          <a class="btn btn--sm glass" data-glow href="#wick"><em>01</em><span>Фитильная</span></a>
+          <a class="btn btn--sm glass" data-glow href="#dwc"><em>02</em><span>Глубоководная</span></a>
+          <a class="btn btn--sm glass" data-glow href="#nft"><em>03</em><span>Питательный слой</span></a>
+          <a class="btn btn--sm glass" data-glow href="#ebb"><em>04</em><span>Прилив — отлив</span></a>
+          <a class="btn btn--sm glass" data-glow href="#drip"><em>05</em><span>Капельный полив</span></a>
+          <a class="btn btn--sm glass" data-glow href="#aero"><em>06</em><span>Аэропоника</span></a>
+        </nav>
+      </div>
+
+      <div class="systems">
+        <!-- 01 ─────────────────────────────── Фитильная -->
+        <article class="system" id="wick">
+          <div class="system__media reveal">
+            <div class="system__frame" data-view="scheme">
+              <div class="scheme" role="img" aria-label="Схема фитильной системы: горшок с субстратом над баком, фитили поднимают раствор к корням">
+                <svg viewBox="0 0 480 300">
+                  <rect class="sc-tank" x="120" y="186" width="240" height="96" rx="12"/>
+                  <rect class="sc-water" x="122" y="210" width="236" height="70" rx="10"/>
+                  <rect class="sc-tank" x="146" y="118" width="188" height="68" rx="10"/>
+                  <rect class="sc-sub" x="151" y="124" width="178" height="57" rx="7"/>
+                  <g fill="#b98f5f" opacity=".55"><circle cx="170" cy="140" r="3"/><circle cx="232" cy="160" r="3"/><circle cx="300" cy="138" r="3"/><circle cx="318" cy="168" r="3"/><circle cx="188" cy="170" r="3"/><circle cx="254" cy="134" r="3"/></g>
+                  <path class="sc-wick" d="M206 150c-6 30 8 60-2 116"/>
+                  <path class="sc-wick" d="M274 150c6 30-8 60 2 116"/>
+                  <path class="sc-flow" d="M204 266c10-56-4-86 2-116"/>
+                  <path class="sc-flow" d="M276 266c-10-56 4-86-2-116"/>
+                  <use href="#sc-plant" x="174" y="64" width="62" height="62"/>
+                  <use href="#sc-plant" x="246" y="64" width="62" height="62"/>
+                  <path class="sc-lead" d="M346 88h-36"/><text x="352" y="92">растение</text>
+                  <path class="sc-lead" d="M346 150h-22"/><text x="352" y="154">субстрат</text>
+                  <path class="sc-lead" d="M78 226h120"/><text x="20" y="230">фитиль</text>
+                  <path class="sc-lead" d="M368 246h-26"/><text x="372" y="244">питательный</text><text x="372" y="260">раствор</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="system__body reveal" style="--d:1">
+            <span class="system__num">01</span>
+            <h3 class="system__title">Фитильная система <small>Wick system</small></h3>
+            <div class="system__meta">
+              <span class="tag">Сложность <span class="level" aria-label="1 из 3"><i class="on"></i><i></i><i></i></span></span>
+              <span class="tag"><i data-icon="leaf"></i>Без электричества</span>
+            </div>
+            <p class="system__text">Горшок с субстратом стоит над баком с питательным раствором. Из субстрата в раствор опущены фитили — хлопковые или синтетические шнуры. Благодаря капиллярному эффекту раствор сам поднимается по фитилю к корням, как вода по салфетке.</p>
+            <div class="pros-cons">
+              <div class="pros surface"><h4><i data-icon="check"></i>Плюсы</h4><ul><li>Нет насосов и электричества</li><li>Можно собрать даже из пластиковой бутылки</li><li>Почти не требует ухода — идеальна для первого опыта</li></ul></div>
+              <div class="cons surface"><h4><i data-icon="alert"></i>Минусы</h4><ul><li>Фитиль подаёт мало воды — крупным растениям не хватит</li><li>В субстрате копятся соли, его нужно промывать</li><li>В переувлажнённом субстрате корням не хватает кислорода</li></ul></div>
+            </div>
+            <div class="crops"><b>Что выращивать:</b><span>салат</span><span>базилик</span><span>мята</span><span>петрушка</span><span>микрозелень</span></div>
+            <p class="tip"><em>Совет.</em> Синтетический шнур не гниёт и служит дольше хлопкового. Хороший субстрат для фитиля — смесь перлита и вермикулита или кокосовое волокно.</p>
+          </div>
+        </article>
+
+        <!-- 02 ─────────────────────────────── DWC -->
+        <article class="system" id="dwc">
+          <div class="system__media reveal">
+            <div class="system__frame" data-view="photo">
+              <div class="segmented glass system__switch" style="--n:2" role="group" aria-label="Что показать">
+                <span class="segmented__thumb"></span>
+                <button type="button" data-view="photo" aria-pressed="true">Фото</button>
+                <button type="button" data-view="scheme" aria-pressed="false">Схема</button>
+              </div>
+              <figure class="photo">
+                <img src="/img/hydroponics/dwc.jpg" alt="Салат на плавающих плотах в теплице — глубоководная культура" loading="lazy" decoding="async" data-zoom>
+                <figcaption class="credit">Фото: <a href="https://commons.wikimedia.org/wiki/File:Deep_water_culture.jpg" target="_blank" rel="noopener">ArcadiYay</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ru" target="_blank" rel="noopener">CC BY-SA 4.0</a></figcaption>
+              </figure>
+              <div class="scheme" aria-hidden="true">
+                <svg viewBox="0 0 480 300">
+                  <rect class="sc-tank" x="120" y="120" width="250" height="160" rx="14"/>
+                  <rect class="sc-water" x="122" y="140" width="246" height="138" rx="12"/>
+                  <use href="#sc-roots" x="176" y="128" width="40" height="96"/>
+                  <use href="#sc-roots" x="278" y="128" width="40" height="96"/>
+                  <rect class="sc-lid" x="110" y="112" width="270" height="10" rx="5"/>
+                  <path class="sc-pot" d="M180 100h32l-5 30h-22z"/>
+                  <path class="sc-pot" d="M282 100h32l-5 30h-22z"/>
+                  <use href="#sc-plant" x="165" y="42" width="62" height="62"/>
+                  <use href="#sc-plant" x="267" y="42" width="62" height="62"/>
+                  <rect class="sc-device" x="22" y="58" width="78" height="40" rx="10"/>
+                  <path class="sc-thin" d="M38 72h46M38 80h46M38 88h30"/>
+                  <path class="sc-tube" d="M100 78H142V258H226"/>
+                  <path class="sc-flow" d="M100 78H142V258H226"/>
+                  <rect x="226" y="252" width="46" height="14" rx="7" fill="#a1a1a6"/>
+                  <g>
+                    <circle class="sc-bubble" cx="236" cy="246" r="4"/>
+                    <circle class="sc-bubble" cx="250" cy="246" r="3" style="animation-delay:-.6s"/>
+                    <circle class="sc-bubble" cx="262" cy="246" r="4.5" style="animation-delay:-1.2s"/>
+                    <circle class="sc-bubble" cx="244" cy="246" r="3" style="animation-delay:-1.8s"/>
+                    <circle class="sc-bubble" cx="258" cy="246" r="3.5" style="animation-delay:-.3s"/>
+                  </g>
+                  <text x="61" y="118" text-anchor="middle">компрессор</text>
+                  <path class="sc-lead" d="M384 262h-108"/><text x="388" y="266">распылитель</text>
+                  <path class="sc-lead" d="M384 196h-60"/><text x="388" y="192">корни</text><text x="388" y="208">в растворе</text>
+                  <path class="sc-lead" d="M384 108h-68"/><text x="388" y="104">сетчатый</text><text x="388" y="120">горшок</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="system__body reveal" style="--d:1">
+            <span class="system__num">02</span>
+            <h3 class="system__title">Глубоководная культура <small>Deep Water Culture, DWC</small></h3>
+            <div class="system__meta">
+              <span class="tag">Сложность <span class="level" aria-label="1 из 3"><i class="on"></i><i></i><i></i></span></span>
+              <span class="tag"><i data-icon="sparkle"></i>Нужен компрессор</span>
+            </div>
+            <p class="system__text">Растения сидят в сетчатых горшочках в крышке бака, а их корни постоянно погружены в питательный раствор. Чтобы корни не задохнулись, аквариумный компрессор через распылитель насыщает раствор кислородом — отсюда пузырьки. В больших теплицах так выращивают салат на плотах, плавающих в бассейнах с раствором.</p>
+            <div class="pros-cons">
+              <div class="pros surface"><h4><i data-icon="check"></i>Плюсы</h4><ul><li>Проста в сборке и недорогая</li><li>Корни получают воду, питание и кислород сразу — растения растут быстро</li><li>Мало деталей — мало поломок</li></ul></div>
+              <div class="cons surface"><h4><i data-icon="alert"></i>Минусы</h4><ul><li>Если компрессор остановится, корням быстро станет не хватать кислорода</li><li>Тёплый раствор (выше 22–24 °C) хуже удерживает кислород, корни могут загнить</li><li>Раствор нужно регулярно проверять и менять</li></ul></div>
+            </div>
+            <div class="crops"><b>Что выращивать:</b><span>салат</span><span>базилик</span><span>шпинат</span><span>руккола</span><span>мангольд</span></div>
+            <p class="tip"><em>Без компрессора</em> работает метод Кратки: сначала корни касаются раствора, а по мере того как он убывает, под крышкой появляется воздушная прослойка — из неё корни и берут кислород.</p>
+          </div>
+        </article>
+
+        <!-- 03 ─────────────────────────────── NFT -->
+        <article class="system" id="nft">
+          <div class="system__media reveal">
+            <div class="system__frame" data-view="photo">
+              <div class="segmented glass system__switch" style="--n:2" role="group" aria-label="Что показать">
+                <span class="segmented__thumb"></span>
+                <button type="button" data-view="photo" aria-pressed="true">Фото</button>
+                <button type="button" data-view="scheme" aria-pressed="false">Схема</button>
+              </div>
+              <figure class="photo">
+                <img src="/img/hydroponics/nft.jpg" alt="Салат в каналах системы питательного слоя (NFT)" loading="lazy" decoding="async" data-zoom>
+                <figcaption class="credit">Фото: <a href="https://commons.wikimedia.org/wiki/File:Salades_dans_un_canal_NFT.jpg" target="_blank" rel="noopener">Jatuphon Buraphon</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.ru" target="_blank" rel="noopener">CC0</a></figcaption>
+              </figure>
+              <div class="scheme" aria-hidden="true">
+                <svg viewBox="0 0 480 300">
+                  <rect class="sc-tank" x="300" y="200" width="150" height="86" rx="12"/>
+                  <rect class="sc-water" x="302" y="218" width="146" height="66" rx="10"/>
+                  <rect class="sc-device" x="318" y="248" width="40" height="28" rx="7"/>
+                  <path class="sc-tube" d="M318 262H50V89H74"/>
+                  <path class="sc-flow" d="M318 262H50V89H74"/>
+                  <path class="sc-tube" d="M402 128V222"/>
+                  <path class="sc-flow" d="M402 128V222"/>
+                  <g transform="rotate(5 240 104)">
+                    <use href="#sc-plant" x="98" y="32" width="62" height="62"/>
+                    <use href="#sc-plant" x="188" y="32" width="62" height="62"/>
+                    <use href="#sc-plant" x="278" y="32" width="62" height="62"/>
+                    <rect class="sc-tank" x="70" y="92" width="340" height="24" rx="12"/>
+                    <use href="#sc-roots" x="117" y="96" width="24" height="16"/>
+                    <use href="#sc-roots" x="207" y="96" width="24" height="16"/>
+                    <use href="#sc-roots" x="297" y="96" width="24" height="16"/>
+                    <rect x="76" y="108" width="328" height="5" rx="2.5" fill="var(--sc-water)"/>
+                    <path class="sc-flow" d="M78 110.5H402"/>
+                  </g>
+                  <path class="sc-lead" d="M150 154l14-32"/><text x="96" y="170">канал с уклоном</text>
+                  <path class="sc-lead" d="M214 196l46-70"/><text x="96" y="206">тонкий слой</text><text x="96" y="222">раствора</text>
+                  <text x="412" y="172">слив</text>
+                  <text x="58" y="300">подача насосом</text>
+                  <text x="375" y="300" text-anchor="middle">бак и насос</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="system__body reveal" style="--d:1">
+            <span class="system__num">03</span>
+            <h3 class="system__title">Питательный слой <small>Nutrient Film Technique, NFT</small></h3>
+            <div class="system__meta">
+              <span class="tag">Сложность <span class="level" aria-label="2 из 3"><i class="on"></i><i class="on"></i><i></i></span></span>
+              <span class="tag"><i data-icon="drop"></i>Нужен насос</span>
+            </div>
+            <p class="system__text">Растения стоят в отверстиях наклонных каналов или труб. Насос подаёт раствор в верхний конец канала, и он тонкой плёнкой — всего в несколько миллиметров — стекает по дну, омывая кончики корней, а затем возвращается в бак. Верхняя часть корней остаётся во влажном воздухе и дышит.</p>
+            <div class="pros-cons">
+              <div class="pros surface"><h4><i data-icon="check"></i>Плюсы</h4><ul><li>Расходует мало воды и раствора</li><li>Корни получают много кислорода</li><li>Легко расширять, добавляя каналы, — так работают многие фермы</li></ul></div>
+              <div class="cons surface"><h4><i data-icon="alert"></i>Минусы</h4><ul><li>Полностью зависит от насоса: без потока корни быстро пересыхают</li><li>Разросшиеся корни могут перекрыть канал</li><li>Важен правильный уклон, иначе раствор застаивается</li></ul></div>
+            </div>
+            <div class="crops"><b>Что выращивать:</b><span>салат</span><span>руккола</span><span>клубника</span><span>базилик</span><span>зелёный лук</span></div>
+            <p class="tip"><em>Совет.</em> Каналу дают небольшой уклон — примерно 2–3 см на каждый метр длины, чтобы раствор тёк ровным тонким слоем.</p>
+          </div>
+        </article>
+
+        <!-- 04 ─────────────────────────────── Прилив-отлив -->
+        <article class="system" id="ebb">
+          <div class="system__media reveal">
+            <div class="system__frame" data-view="scheme">
+              <div class="scheme" role="img" aria-label="Схема системы прилив — отлив: насос по таймеру затапливает лоток, раствор стекает обратно в бак">
+                <svg viewBox="0 0 480 300">
+                  <path class="sc-thin" d="M102 164V286M378 164V286"/>
+                  <rect class="sc-tank" x="160" y="212" width="170" height="74" rx="12"/>
+                  <rect class="sc-water" x="162" y="230" width="166" height="54" rx="10"/>
+                  <rect class="sc-device" x="180" y="250" width="38" height="26" rx="7"/>
+                  <path class="sc-tube" d="M199 250V164"/>
+                  <path class="sc-flow sc-flow--fill" d="M199 250V164"/>
+                  <path class="sc-tube" d="M290 164V234"/>
+                  <path class="sc-flow sc-flow--drain" d="M290 164V234"/>
+                  <rect class="sc-tank" x="90" y="118" width="300" height="46" rx="8"/>
+                  <rect class="sc-water sc-flood" x="93" y="121" width="294" height="40" rx="6"/>
+                  <rect x="286" y="132" width="8" height="32" rx="2" fill="var(--sc-stroke)" opacity=".7"/>
+                  <path class="sc-pot" d="M126 100h48l-6 56h-36z"/>
+                  <path class="sc-pot" d="M216 100h48l-6 56h-36z"/>
+                  <path class="sc-pot" d="M306 100h48l-6 56h-36z" />
+                  <rect class="sc-sub" x="130" y="104" width="40" height="10" rx="3"/>
+                  <rect class="sc-sub" x="220" y="104" width="40" height="10" rx="3"/>
+                  <rect class="sc-sub" x="310" y="104" width="40" height="10" rx="3"/>
+                  <use href="#sc-plant" x="119" y="42" width="62" height="62"/>
+                  <use href="#sc-plant" x="209" y="42" width="62" height="62"/>
+                  <use href="#sc-plant" x="299" y="42" width="62" height="62"/>
+                  <circle class="sc-device" cx="62" cy="250" r="20"/>
+                  <path class="sc-thin" d="M62 238v12l8 5"/>
+                  <path class="sc-lead" d="M82 256H180"/>
+                  <text x="62" y="290" text-anchor="middle">таймер</text>
+                  <text x="191" y="196" text-anchor="end">прилив</text>
+                  <text x="298" y="196">отлив</text>
+                  <path class="sc-lead" d="M394 140h-8"/><text x="398" y="144">лоток</text>
+                  <text x="340" y="276">бак</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="system__body reveal" style="--d:1">
+            <span class="system__num">04</span>
+            <h3 class="system__title">Прилив — отлив <small>Ebb &amp; Flow</small></h3>
+            <div class="system__meta">
+              <span class="tag">Сложность <span class="level" aria-label="2 из 3"><i class="on"></i><i class="on"></i><i></i></span></span>
+              <span class="tag"><i data-icon="clock"></i>Насос и таймер</span>
+            </div>
+            <p class="system__text">Горшки с субстратом стоят в неглубоком лотке. Несколько раз в день насос по таймеру затапливает лоток раствором — это «прилив». Затем насос выключается, и раствор стекает обратно в бак — «отлив». Когда раствор уходит, в субстрат затягивается свежий воздух.</p>
+            <div class="pros-cons">
+              <div class="pros surface"><h4><i data-icon="check"></i>Плюсы</h4><ul><li>Корни получают и питание, и кислород</li><li>Подходит для самых разных растений и рассады</li><li>Горшки легко переставлять и заменять</li></ul></div>
+              <div class="cons surface"><h4><i data-icon="alert"></i>Минусы</h4><ul><li>Нужны насос, таймер и герметичный лоток</li><li>Если таймер сломается, растения пересохнут или останутся в воде</li><li>Субстрат нужно подбирать: керамзит, минвата, кокос</li></ul></div>
+            </div>
+            <div class="crops"><b>Что выращивать:</b><span>рассада</span><span>томаты</span><span>перец</span><span>базилик</span><span>цветы</span></div>
+            <p class="tip"><em>Совет.</em> Трубка-перелив в лотке не даёт раствору подняться выше нужного уровня — это защита от «потопа».</p>
+          </div>
+        </article>
+
+        <!-- 05 ─────────────────────────────── Капельный -->
+        <article class="system" id="drip">
+          <div class="system__media reveal">
+            <div class="system__frame" data-view="photo">
+              <div class="segmented glass system__switch" style="--n:2" role="group" aria-label="Что показать">
+                <span class="segmented__thumb"></span>
+                <button type="button" data-view="photo" aria-pressed="true">Фото</button>
+                <button type="button" data-view="scheme" aria-pressed="false">Схема</button>
+              </div>
+              <figure class="photo">
+                <img src="/img/hydroponics/drip.jpg" alt="Капельница над кубиком минеральной ваты и керамзитом" loading="lazy" decoding="async" data-zoom>
+                <figcaption class="credit">Фото: <a href="https://commons.wikimedia.org/wiki/File:Drip_emitter.jpg" target="_blank" rel="noopener">Alan.ca</a>, общественное достояние</figcaption>
+              </figure>
+              <div class="scheme" aria-hidden="true">
+                <svg viewBox="0 0 480 300">
+                  <rect class="sc-tank" x="330" y="226" width="130" height="62" rx="12"/>
+                  <rect class="sc-water" x="332" y="242" width="126" height="44" rx="10"/>
+                  <rect class="sc-device" x="350" y="254" width="38" height="26" rx="7"/>
+                  <path class="sc-tube" d="M369 254V212H452V60H60"/>
+                  <path class="sc-flow" d="M369 254V212H452V60H60"/>
+                  <path class="sc-thin" d="M144 60v70q0 10-8 12M234 60v70q0 10-8 12M324 60v70q0 10-8 12"/>
+                  <circle class="sc-drop" cx="133" cy="146" r="3"/>
+                  <circle class="sc-drop" cx="223" cy="146" r="3" style="animation-delay:-.5s"/>
+                  <circle class="sc-drop" cx="313" cy="146" r="3" style="animation-delay:-1s"/>
+                  <rect class="sc-tank" x="70" y="200" width="252" height="14" rx="5"/>
+                  <path class="sc-pot" d="M86 152h48l-6 50h-36z"/>
+                  <path class="sc-pot" d="M176 152h48l-6 50h-36z"/>
+                  <path class="sc-pot" d="M266 152h48l-6 50h-36z"/>
+                  <rect class="sc-sub" x="90" y="156" width="40" height="14" rx="3"/>
+                  <rect class="sc-sub" x="180" y="156" width="40" height="14" rx="3"/>
+                  <rect class="sc-sub" x="270" y="156" width="40" height="14" rx="3"/>
+                  <use href="#sc-plant" x="79" y="92" width="62" height="62"/>
+                  <use href="#sc-plant" x="169" y="92" width="62" height="62"/>
+                  <use href="#sc-plant" x="259" y="92" width="62" height="62"/>
+                  <path class="sc-tube" d="M320 207H342V244"/>
+                  <path class="sc-flow" d="M320 207H342V244"/>
+                  <text x="60" y="44">магистраль</text>
+                  <path class="sc-lead" d="M352 124l-24 14"/><text x="356" y="124">капельницы</text>
+                  <path class="sc-lead" d="M24 180h66"/><text x="20" y="174">субстрат</text>
+                  <text x="196" y="240" text-anchor="middle">возврат в бак</text>
+                  <text x="394" y="272">насос</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="system__body reveal" style="--d:1">
+            <span class="system__num">05</span>
+            <h3 class="system__title">Капельный полив <small>Drip system</small></h3>
+            <div class="system__meta">
+              <span class="tag">Сложность <span class="level" aria-label="2 из 3"><i class="on"></i><i class="on"></i><i></i></span></span>
+              <span class="tag"><i data-icon="clock"></i>Насос и таймер</span>
+            </div>
+            <p class="system__text">Насос по таймеру подаёт раствор по магистральной трубке, а капельницы выпускают его понемногу прямо на субстрат у каждого растения. Излишки стекают в поддон и возвращаются в бак (замкнутая система) или удаляются (открытая). Именно так выращивают томаты и огурцы в больших теплицах.</p>
+            <div class="pros-cons">
+              <div class="pros surface"><h4><i data-icon="check"></i>Плюсы</h4><ul><li>Точно дозирует раствор для каждого растения</li><li>Подходит для крупных растений с большим объёмом субстрата</li><li>Легко масштабируется до целой теплицы</li></ul></div>
+              <div class="cons surface"><h4><i data-icon="alert"></i>Минусы</h4><ul><li>Капельницы засоряются солями и частицами — нужен фильтр</li><li>Больше деталей и настройки</li><li>В замкнутой системе приходится чаще проверять pH и EC</li></ul></div>
+            </div>
+            <div class="crops"><b>Что выращивать:</b><span>томаты</span><span>огурцы</span><span>перец</span><span>клубника</span><span>баклажаны</span></div>
+            <p class="tip"><em>Совет.</em> Открытая система проще в уходе — раствор всегда свежий, — но расходует больше воды и удобрений.</p>
+          </div>
+        </article>
+
+        <!-- 06 ─────────────────────────────── Аэропоника -->
+        <article class="system" id="aero">
+          <div class="system__media reveal">
+            <div class="system__frame" data-view="photo">
+              <div class="segmented glass system__switch" style="--n:2" role="group" aria-label="Что показать">
+                <span class="segmented__thumb"></span>
+                <button type="button" data-view="photo" aria-pressed="true">Фото</button>
+                <button type="button" data-view="scheme" aria-pressed="false">Схема</button>
+              </div>
+              <figure class="photo">
+                <img src="/img/hydroponics/aero.jpg" alt="Корни растений в аэропонной камере и трубка с форсунками" loading="lazy" decoding="async" data-zoom>
+                <figcaption class="credit">Фото: <a href="https://commons.wikimedia.org/wiki/File:Aeroponic_roots.jpg" target="_blank" rel="noopener">MyAeroponics</a>, <a href="https://artlibre.org/licence/lal/en/" target="_blank" rel="noopener">Free Art License</a></figcaption>
+              </figure>
+              <div class="scheme" aria-hidden="true">
+                <svg viewBox="0 0 480 300">
+                  <rect class="sc-dark" x="90" y="118" width="280" height="150" rx="14"/>
+                  <use href="#sc-roots" x="148" y="128" width="44" height="84"/>
+                  <use href="#sc-roots" x="268" y="128" width="44" height="84"/>
+                  <ellipse class="sc-mist" cx="150" cy="208" rx="36" ry="32"/>
+                  <ellipse class="sc-mist" cx="230" cy="208" rx="36" ry="32" style="animation-delay:-.7s"/>
+                  <ellipse class="sc-mist" cx="310" cy="208" rx="36" ry="32" style="animation-delay:-1.4s"/>
+                  <path class="sc-tube" d="M408 263H384V246H112"/>
+                  <path class="sc-flow" d="M408 263H384V246H112"/>
+                  <rect x="146" y="232" width="8" height="10" rx="2" fill="var(--sc-stroke)"/>
+                  <rect x="226" y="232" width="8" height="10" rx="2" fill="var(--sc-stroke)"/>
+                  <rect x="306" y="232" width="8" height="10" rx="2" fill="var(--sc-stroke)"/>
+                  <rect class="sc-lid" x="82" y="110" width="296" height="10" rx="5"/>
+                  <path class="sc-pot" d="M154 98h32l-5 30h-22z"/>
+                  <path class="sc-pot" d="M274 98h32l-5 30h-22z"/>
+                  <use href="#sc-plant" x="139" y="40" width="62" height="62"/>
+                  <use href="#sc-plant" x="259" y="40" width="62" height="62"/>
+                  <rect class="sc-tank" x="392" y="196" width="78" height="90" rx="12"/>
+                  <rect class="sc-water" x="394" y="222" width="74" height="62" rx="10"/>
+                  <rect class="sc-device" x="408" y="250" width="40" height="26" rx="7"/>
+                  <path class="sc-tube" d="M330 268V280H394"/>
+                  <path class="sc-flow" d="M330 268V280H394"/>
+                  <path class="sc-lead" d="M84 166h78"/><text x="80" y="162" text-anchor="end">корни</text><text x="80" y="178" text-anchor="end">в воздухе</text>
+                  <path class="sc-lead" d="M84 206h34"/><text x="80" y="210" text-anchor="end">туман</text>
+                  <path class="sc-lead" d="M84 240h60"/><text x="80" y="244" text-anchor="end">форсунки</text>
+                  <text x="431" y="190" text-anchor="middle">бак и насос</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="system__body reveal" style="--d:1">
+            <span class="system__num">06</span>
+            <h3 class="system__title">Аэропоника <small>Aeroponics</small></h3>
+            <div class="system__meta">
+              <span class="tag">Сложность <span class="level" aria-label="3 из 3"><i class="on"></i><i class="on"></i><i class="on"></i></span></span>
+              <span class="tag"><i data-icon="clock"></i>Насос высокого давления</span>
+            </div>
+            <p class="system__text">Корни висят в закрытой тёмной камере прямо в воздухе. Насос под давлением подаёт раствор к форсункам, и те через короткие промежутки времени распыляют его на корни мелким туманом. Корни получают максимум кислорода, поэтому растения растут очень быстро.</p>
+            <div class="pros-cons">
+              <div class="pros surface"><h4><i data-icon="check"></i>Плюсы</h4><ul><li>Максимум кислорода и быстрый рост</li><li>Очень экономный расход воды</li><li>Подходит для вертикальных ферм; такие установки изучали и для выращивания растений в космосе</li></ul></div>
+              <div class="cons surface"><h4><i data-icon="alert"></i>Минусы</h4><ul><li>Дорогое и сложное оборудование</li><li>Форсунки засоряются, их нужно чистить</li><li>При сбое насоса корни пересыхают очень быстро</li></ul></div>
+            </div>
+            <div class="crops"><b>Что выращивать:</b><span>зелень</span><span>клубника</span><span>томаты</span><span>черенки</span><span>картофель</span></div>
+            <p class="tip"><em>Интересно.</em> В аэропонике хорошо укореняются черенки, а ещё так выращивают мелкие семенные клубни картофеля — их легко собирать прямо с висящих корней.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" aria-labelledby="compare-title">
+      <div class="hydro-section-head reveal">
+        <h2 class="h-section" id="compare-title">Сравним <em class="it it--accent">коротко</em></h2>
+      </div>
+      <div class="compare glass reveal">
+        <table>
+          <thead>
+            <tr><th scope="col">Система</th><th scope="col">Сложность</th><th scope="col">Что понадобится</th><th scope="col">Лучше всего для</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row"><a href="#wick">Фитильная</a></th><td><span class="level" aria-label="1 из 3"><i class="on"></i><i></i><i></i></span></td><td>бак, горшок, фитиль</td><td>зелень, пряные травы</td></tr>
+            <tr><th scope="row"><a href="#dwc">Глубоководная (DWC)</a></th><td><span class="level" aria-label="1 из 3"><i class="on"></i><i></i><i></i></span></td><td>бак, компрессор, распылитель</td><td>салат, базилик</td></tr>
+            <tr><th scope="row"><a href="#nft">Питательный слой (NFT)</a></th><td><span class="level" aria-label="2 из 3"><i class="on"></i><i class="on"></i><i></i></span></td><td>каналы, насос, бак</td><td>салат, клубника</td></tr>
+            <tr><th scope="row"><a href="#ebb">Прилив — отлив</a></th><td><span class="level" aria-label="2 из 3"><i class="on"></i><i class="on"></i><i></i></span></td><td>лоток, насос, таймер</td><td>рассада, томаты, перец</td></tr>
+            <tr><th scope="row"><a href="#drip">Капельный полив</a></th><td><span class="level" aria-label="2 из 3"><i class="on"></i><i class="on"></i><i></i></span></td><td>насос, таймер, капельницы</td><td>томаты, огурцы</td></tr>
+            <tr><th scope="row"><a href="#aero">Аэропоника</a></th><td><span class="level" aria-label="3 из 3"><i class="on"></i><i class="on"></i><i class="on"></i></span></td><td>камера, насос высокого давления, форсунки</td><td>зелень, черенки</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="panel glass hydro-cta reveal">
+        <div>
+          <h2>С чего <em class="it it--accent">начать?</em></h2>
+          <p>Для первого опыта подойдут фитильная система или DWC: их можно собрать за вечер из пластиковых контейнеров. Вырастили что-то? Поделитесь фотографией в ленте наблюдений.</p>
+        </div>
+        <div class="hydro-cta__actions">
+          <a class="btn btn--primary" href="/cabinet.html#upload"><i data-icon="camera"></i><span>Добавить наблюдение</span></a>
+          <a class="btn glass" data-glow href="/topic.html?id=hydroponic-models"><span>Модели систем</span><i data-icon="arrow-right"></i></a>
+        </div>
+      </div>
+      <p class="sources reveal">Фотографии взяты с <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a> по свободным лицензиям, автор и лицензия указаны на каждом снимке; размер изображений изменён. Схемы нарисованы для этого сайта.</p>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script type="module" src="/js/hydroponics.js"></script>
+</body>
+</html>

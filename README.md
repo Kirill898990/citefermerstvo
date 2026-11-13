@@ -32,16 +32,57 @@
 
    В админке можно смотреть и удалять пользователей, фото и лайки.
 
-## Публикация в интернете
+## Запуск на сервере (cityzaman.ru, NetAngels)
 
-Подойдёт любой VPS с Linux. Скопируйте проект на сервер, направьте домен на IP сервера и запустите:
+Нужен **облачный VDS** с Ubuntu — на обычном виртуальном хостинге PocketBase не запустится,
+потому что ему нужна постоянно работающая программа со своими портами 80 и 443.
+
+**1. Направьте домен на сервер.** В панели NetAngels (или там, где куплен домен) создайте
+две A-записи с IP-адресом вашего VDS: `cityzaman.ru` и `www.cityzaman.ru`.
+Изменения DNS расходятся от нескольких минут до нескольких часов.
+
+**2. Подключитесь к серверу** (в Windows — через PowerShell, на Mac — через «Терминал»):
 
 ```bash
-./pocketbase serve ваш-домен.рф
+ssh root@IP-АДРЕС-СЕРВЕРА
 ```
 
-PocketBase сам получит HTTPS-сертификат Let's Encrypt. Все данные (база и загруженные фото)
-хранятся в папке `pb_data` — её нужно регулярно копировать в резервную копию.
+**3. Установите сайт** — выполните команды по очереди:
+
+```bash
+apt update && apt install -y git unzip
+useradd --system --home /opt/cityzaman --shell /usr/sbin/nologin pocketbase
+git clone -b claude/sitifermstvo-website-personal-cabinet-7hhrsf https://github.com/Kirill898990/citefermerstvo.git /opt/cityzaman
+cd /opt/cityzaman
+wget https://github.com/pocketbase/pocketbase/releases/download/v0.40.6/pocketbase_0.40.6_linux_amd64.zip
+unzip pocketbase_0.40.6_linux_amd64.zip pocketbase && rm pocketbase_0.40.6_linux_amd64.zip
+./pocketbase superuser upsert ВАШ_EMAIL 'ВАШ_ПАРОЛЬ'
+chown -R pocketbase:pocketbase /opt/cityzaman
+cp deploy/cityzaman.service /etc/systemd/system/
+systemctl daemon-reload
+systemctl enable --now cityzaman
+```
+
+Пока сайт не перенесён в ветку `main`, в команде `git clone` указана рабочая ветка (`-b …`).
+После слияния эту часть можно убрать.
+
+Если на сервере включён фаервол `ufw`, откройте порты: `ufw allow OpenSSH && ufw allow 80,443/tcp`.
+
+**4. Готово.** Откройте <https://cityzaman.ru> — при первом заходе PocketBase за несколько секунд
+получит HTTPS-сертификат. Админка: <https://cityzaman.ru/_/> (вход — e-mail и пароль из шага 3).
+В админке откройте Settings → Application и укажите Application URL `https://cityzaman.ru`.
+
+Полезные команды:
+
+| Что сделать | Команда |
+| --- | --- |
+| Посмотреть, работает ли сайт | `systemctl status cityzaman` |
+| Смотреть журнал в реальном времени | `journalctl -u cityzaman -f` |
+| Обновить сайт до новой версии из GitHub | `sudo -u pocketbase git -C /opt/cityzaman pull && systemctl restart cityzaman` |
+| Перезапустить | `systemctl restart cityzaman` |
+
+Все данные (база и загруженные фото) лежат в `/opt/cityzaman/pb_data`. Настройте регулярные
+резервные копии в админке: Settings → Backups.
 
 ## Что где лежит
 
